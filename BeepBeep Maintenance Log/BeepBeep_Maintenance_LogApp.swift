@@ -10,23 +10,17 @@ import SwiftData
 
 @main
 struct BeepBeep_Maintenance_LogApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+            WindowGroup {
+                TabView {
+                    GarageListView()
+                        .tabItem { Label("Garage", systemImage: "car.fill") }
+                    
+                    SettingsView()
+                        .tabItem { Label("Settings", systemImage: "gear") }
+                }
+            }
+            // Inject the SwiftData container
+            .modelContainer(for: [Vehicle.self, MaintenanceRecord.self])
         }
-        .modelContainer(sharedModelContainer)
-    }
 }

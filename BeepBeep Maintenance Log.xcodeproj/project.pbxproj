@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3F58B8092F1F4DCE0058DDD3 /* LICENSE in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B8082F1F4DC20058DDD3 /* LICENSE */; };
+		3F58B80B2F1F4E3F0058DDD3 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B80A2F1F4E330058DDD3 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3F58B7DC2F1F3DC20058DDD3 /* BeepBeep Maintenance Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BeepBeep Maintenance Log.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F58B8082F1F4DC20058DDD3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		3F58B80A2F1F4E330058DDD3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +39,8 @@
 		3F58B7D32F1F3DC20058DDD3 = {
 			isa = PBXGroup;
 			children = (
+				3F58B80A2F1F4E330058DDD3 /* README.md */,
+				3F58B8082F1F4DC20058DDD3 /* LICENSE */,
 				3F58B7DE2F1F3DC20058DDD3 /* BeepBeep Maintenance Log */,
 				3F58B7DD2F1F3DC20058DDD3 /* Products */,
 			);
@@ -119,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F58B8092F1F4DCE0058DDD3 /* LICENSE in Sources */,
+				3F58B80B2F1F4E3F0058DDD3 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
