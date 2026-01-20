@@ -11,16 +11,9 @@ import SwiftData
 @main
 struct BeepBeep_Maintenance_LogApp: App {
     var body: some Scene {
-            WindowGroup {
-                TabView {
-                    GarageListView()
-                        .tabItem { Label("Garage", systemImage: "car.fill") }
-                    
-                    SettingsView()
-                        .tabItem { Label("Settings", systemImage: "gear") }
-                }
-            }
-            // Inject the SwiftData container
-            .modelContainer(for: [Vehicle.self, MaintenanceRecord.self])
+        WindowGroup {
+            ContentView()
         }
+        .modelContainer(for: [Vehicle.self, MaintenanceRecord.self])
+    }
 }

@@ -75,3 +75,10 @@ struct AttachmentIcon: View {
         .cornerRadius(8)
     }
 }
+
+#Preview {
+    NavigationStack {
+        // We use the static 'vehicle' from our helper which is already linked to the container
+        VehicleDetailView(vehicle: PreviewSampleData.vehicle)
+    }
+}

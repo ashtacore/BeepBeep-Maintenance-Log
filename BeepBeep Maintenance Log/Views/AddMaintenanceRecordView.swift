@@ -107,3 +107,8 @@ struct AddMaintenanceRecordView: View {
         }
     }
 }
+
+#Preview {
+    AddMaintenanceRecordView(vehicle: PreviewSampleData.vehicle)
+        .modelContainer(PreviewSampleData.container)
+}
