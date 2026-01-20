@@ -6,9 +6,10 @@ class Vehicle {
     var make: String
     var model: String
     var year: String
+    var sortOrder: Int
     var isArchived: Bool = false
-    // Relationship: One vehicle has many records
-    // .cascade means if you delete the car, the records are deleted too
+    
+    
     @Relationship(deleteRule: .cascade) var records: [MaintenanceRecord] = []
     
     // Computed property for easy display
@@ -16,9 +17,10 @@ class Vehicle {
         "\(year) \(make) \(model)"
     }
     
-    init(make: String, model: String, year: String) {
+    init(make: String, model: String, year: String, sortOrder: Int) {
         self.make = make
         self.model = model
         self.year = year
+        self.sortOrder = sortOrder
     }
 }

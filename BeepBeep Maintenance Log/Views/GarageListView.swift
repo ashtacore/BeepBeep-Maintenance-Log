@@ -3,8 +3,7 @@ import SwiftData
 
 struct GarageListView: View {
     @Environment(\.modelContext) private var modelContext
-    // Query only unarchived cars
-    @Query(filter: #Predicate<Vehicle> { !$0.isArchived }, sort: \Vehicle.year, order: .reverse) private var vehicles: [Vehicle]
+    @Query(filter: #Predicate<Vehicle> { !$0.isArchived }, sort: \Vehicle.sortOrder) private var vehicles: [Vehicle]
     
     @State private var showAddSheet = false
     
@@ -25,7 +24,7 @@ struct GarageListView: View {
             .navigationTitle("My Garage")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    EditButton() // Standard SwiftUI Edit/Done button
+                    EditButton()
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: { showAddSheet = true }) {
@@ -39,7 +38,7 @@ struct GarageListView: View {
         }
     }
 
-    // Instead of deleting permanently here, we just set isArchived = true
+    // We don't want to make deletions easy. Any "deleted" cars will be moved to archive
     private func archiveVehicles(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
@@ -49,8 +48,12 @@ struct GarageListView: View {
     }
     
     private func moveVehicles(from source: IndexSet, to destination: Int) {
-        // Note: SwiftData sorting is usually based on descriptors.
-        // For manual reordering, you would typically add a 'sortOrder' Int property to your Model.
+        var updatedVehicleList = vehicles
+        updatedVehicleList.move(fromOffsets: source, toOffset: destination)
+        
+        for (index, vehicle) in updatedVehicleList.enumerated() {
+            vehicle.sortOrder = index
+        }
     }
 }
 

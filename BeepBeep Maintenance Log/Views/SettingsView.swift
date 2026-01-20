@@ -22,6 +22,7 @@ struct SettingsView: View {
                                 Spacer()
                                 Button("Restore") {
                                     vehicle.isArchived = false
+                                    vehicle.sortOrder = 9999
                                 }
                                 .buttonStyle(.bordered)
                             }
