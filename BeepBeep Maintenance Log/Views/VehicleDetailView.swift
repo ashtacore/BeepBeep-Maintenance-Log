@@ -49,9 +49,18 @@ struct VehicleDetailView: View {
             }
         }
         .searchable(text: $searchText, prompt: "Search log...")
-        .navigationTitle(vehicle.title)
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            Button("Add Log") { showAddRecord = true }
+            ToolbarItem(placement: .principal) {
+                Text(vehicle.displayTitle)
+                    .font(.headline)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.7)
+                    .multilineTextAlignment(.center)
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Button("Add Log") { showAddRecord = true }
+            }
         }
         .sheet(isPresented: $showAddRecord) {
             AddMaintenanceRecordView(vehicle: vehicle)

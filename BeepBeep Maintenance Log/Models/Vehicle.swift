@@ -8,6 +8,7 @@ class Vehicle {
     var year: String
     var sortOrder: Int
     var isArchived: Bool = false
+    var nickname: String?
     
     
     @Relationship(deleteRule: .cascade) var records: [MaintenanceRecord] = []
@@ -17,10 +18,19 @@ class Vehicle {
         "\(year) \(make) \(model)"
     }
     
-    init(make: String, model: String, year: String, sortOrder: Int) {
+    // Display title with nickname if available
+    var displayTitle: String {
+        if let nickname, !nickname.isEmpty {
+            return "\(title) (\(nickname))"
+        }
+        return title
+    }
+    
+    init(make: String, model: String, year: String, sortOrder: Int, nickname: String? = nil) {
         self.make = make
         self.model = model
         self.year = year
         self.sortOrder = sortOrder
+        self.nickname = nickname
     }
 }

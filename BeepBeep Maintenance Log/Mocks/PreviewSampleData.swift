@@ -13,7 +13,7 @@ class PreviewSampleData {
             // 2. Add some dummy data
             let car1 = Vehicle(make: "Toyota", model: "Tacoma", year: "2018", sortOrder: 0)
             let car2 = Vehicle(make: "Ford", model: "Mustang", year: "1967", sortOrder: 1)
-            let car3 = Vehicle(make: "Nissan", model: "Frontier", year: "2011", sortOrder: 2)
+            let car3 = Vehicle(make: "Nissan", model: "Frontier", year: "2011", sortOrder: 2, nickname: "Ole Reliable")
             let car4 = Vehicle(make: "Jeep", model: "Wrangler", year: "2022", sortOrder: 3)
             car2.isArchived = true
             

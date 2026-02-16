@@ -13,7 +13,7 @@ struct GarageListView: View {
                 ForEach(vehicles) { vehicle in
                     NavigationLink(destination: VehicleDetailView(vehicle: vehicle)) {
                         VStack(alignment: .leading) {
-                            Text(vehicle.title).font(.headline)
+                            Text(vehicle.displayTitle).font(.headline)
                             Text("\(vehicle.records.count) records").font(.caption).foregroundStyle(.secondary)
                         }
                     }
